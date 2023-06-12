@@ -1,0 +1,61 @@
+{
+  "height": 4,
+  "widget": {
+    "title": "Traffic",
+    "xyChart": {
+      "chartOptions": {
+        "mode": "COLOR"
+      },
+      "dataSets": [
+        {
+          "legendTemplate": "Received",
+          "plotType": "LINE",
+          "targetAxis": "Y1",
+          "timeSeriesQuery": {
+            "apiSource": "DEFAULT_CLOUD",
+            "timeSeriesFilter": {
+              "aggregation": {
+                "crossSeriesReducer": "REDUCE_SUM",
+                "groupByFields": [
+                  "metric.labels.instance_name"
+                ],
+                "perSeriesAligner": "ALIGN_RATE"
+              },
+              "filter": "resource.type=\"gce_instance\" resource.label.project_id=\"itk-mcr-dev-backend-197b\" resource.label.zone=\"us-east4-a\" resource.label.instance_id=\"3691145736884784773\" metric.type=\"compute.googleapis.com/instance/network/received_bytes_count\"",
+              "secondaryAggregation": {
+                "crossSeriesReducer": "REDUCE_NONE",
+                "perSeriesAligner": "ALIGN_NONE"
+              }
+            }
+          }
+        },
+        {
+          "legendTemplate": "Sent",
+          "plotType": "LINE",
+          "targetAxis": "Y1",
+          "timeSeriesQuery": {
+            "apiSource": "DEFAULT_CLOUD",
+            "timeSeriesFilter": {
+              "aggregation": {
+                "crossSeriesReducer": "REDUCE_SUM",
+                "groupByFields": [
+                  "metric.labels.instance_name"
+                ],
+                "perSeriesAligner": "ALIGN_RATE"
+              },
+              "filter": "resource.type=\"gce_instance\" resource.label.project_id=\"itk-mcr-dev-backend-197b\" resource.label.zone=\"us-east4-a\" resource.label.instance_id=\"3691145736884784773\" metric.type=\"compute.googleapis.com/instance/network/sent_bytes_count\"",
+              "secondaryAggregation": {
+                "crossSeriesReducer": "REDUCE_NONE",
+                "perSeriesAligner": "ALIGN_NONE"
+              }
+            }
+          }
+        }
+      ],
+      "thresholds": []
+    }
+  },
+  "width": 6,
+  "xPos": 0,
+  "yPos": 0
+}
